@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// ** is pointer to  the 2D array representing the matrix
+int** createMatrix(int *k, int *n, File *fp);
+int** multiply(int **A, int **B, int k);
+// k and n don't need to be modified here, so not passed by *
+int** powerMatrix(int **M, int k, int n); 
+
+int main(int argc, char *argv[]){
+}
+
+int** createMatrix(int *k, int *n, File *fp){
+	fscanf(fp, "%d", k);
+	int **M = malloc((*k) * sizeof(int*);
+	for(int i = 0; i < *k; i++){
+		M[i] = malloc((*k) * sizeof((int));
+		for(int j = 0; j < *k; j++){
+			fscanf(fp, "%d", &M[i][j]);
+		}
+	}
+	fscanf(fp, "%d", n);
+	return M;
+}
+
+int** multiply(int **A, int **B, int k){
+	int **C = malloc(k * sizeof(int*));
+	for(int i = 0; i < k; i++) {
+		C[i] = malloc(k * sizeof(int));
+		for(int j = 0; j < k; j++){
+			C[i][j] = 0;
+			for(int t = 0; t < k; t++){
+				C[i][j] = C[i][j] + (A[i][t] * B[t][j];
+			}
+		}
+	}
+	return C;
+}
+
+int** powerMatrix(int **M, int k, int n){
+	if(n == 0){
+
+	}else{
+		int **matrix = M;
+		for(int i = 1; i < n; i++){
+			matrix  = multiply(matrix, M, k);
+		}
+		return matrix;
+	}
+}
+
+
+
+
+}

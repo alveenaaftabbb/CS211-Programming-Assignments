@@ -1,0 +1,29 @@
+#include <stdio.h>
+// Form the linked list using this function
+typedef struct node {
+    struct node *next;// Needed to write struct still because node is not defined yet
+    int data;
+} Node; // What to refer to this as
+typedef struct list {
+        // Points to the first node
+        // This is taken from the first struct
+        node *head;
+        // How many nodes are in the list
+        int length;
+} List; // What to refer to this as
+// Set clean slate
+void initialize(List *list){
+	list->head = NULL;
+	list->length = 0;
+}
+void destroy(List *list){
+	Node *current = list->head;
+	while(current != NULL){
+		Node *next = current->next;
+		free(current);
+		current = next;
+		// This will continue until all nodes are free
+	}
+
+
+		
